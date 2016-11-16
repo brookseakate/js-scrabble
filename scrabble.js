@@ -31,27 +31,37 @@ var Scrabble = function() {};
 
 // score(word): returns the total score value for the given word. The word is input as a string (case insensitive). The chart below shows the point value for a given letter.
 Scrabble.prototype.score = function(word) {
+  this.word = word.toUpperCase();
+
   var score = 0;
 
-  for (var i = 0; i < word.length; i++) {
-    var char = word[i];
+  for (var i = 0; i < this.word.length; i++) {
+    var char = this.word[i];
     score += TILE_SCORES[char];
   }
-  return score;
+
+  var total = score + this.bonus(this.word);
+  return total;
 };
 
-// @TODO - case insensitivity
-// @TODO - add bonus
-
+Scrabble.prototype.bonus = function(word) {
+  var bonus_result = ( word.length === 7 ) ? 50 : 0 ;
+  return bonus_result;
+};
+// @TODO - limit word length?
 
 
 module.exports = Scrabble;
 
-// // @TODO - move elsewhere as a test file
-
+// // @TODO - move TESTS below elsewhere as a separate file
 var s = new Scrabble();
+console.log("-------------------------------------------");
 console.log("TESTS");
 console.log("-------------------------------------------");
-console.log("CAT should be 5: " + s.score("CAT")); // score: 5
-console.log("KOALA should be 5: " + s.score("KOALA")); // score: 9
-console.log("MUZJIKS should be 79 with bonus: " + s.score("MUZJIKS")); // score: 9
+console.log("'cAt' score should be 5. Score is: " + s.score("cAt")); // score: 5
+console.log("'cAt' bonus should be 0. Bonus is: " + s.bonus("cAt")); // bonus: 0
+console.log("'koala' score should be 9. Score is: " + s.score("koala")); // score: 9
+console.log("'MUZJIKS' bonus should be 50. Bonus is: " + s.bonus("MUZJIKS")); // bonus: 50
+console.log("'MUZJIKS' score should be 79 with bonus. Score is: " + s.score("MUZJIKS")); // score: 79
+console.log("'aBieTiC' bonus should be 50. Bonus is: " + s.bonus("aBieTiC")); // bonus: 50
+console.log("'aBieTiC' score should be 61 with bonus. Score is: " + s.score("aBieTiC")); // score: 61
