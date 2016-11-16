@@ -1,3 +1,5 @@
+var Player = require('./player');
+
 const TILE_SCORES = {
   A: 1,
   E: 1,
@@ -73,7 +75,7 @@ Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
 
 module.exports = Scrabble;
 
-// // @TODO - move these TESTS elsewhere as a separate file
+// // @TODO - move TESTS to jasmine
 var s = new Scrabble();
 
 console.log("\n-------------------------------------------");
