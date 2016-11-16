@@ -67,35 +67,13 @@ Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
       high_word = check_word;
       high_score = check_score;
     }
-    // return high_word;
   }
   return high_word;
-  // for (i = 1; i < arrayOfWords.length; i++) {
-  //   if (self.score(arrayOfWords[i]) > high_score) {
-  //     if (self.score(arrayOfWords[i]) === high_score) {
-  //       // check for 7-letter-word or shorter word
-  //     } else {
-  //
-  //     }
-  //     // update high_word
-  //     // AND high_score
-  //   } else { nothing  } //TODO
-  // }
-
-  // // NOTE: initial beginning
-  // for (i = 1; i < arrayOfWords.length; i++) {
-  //   if (self.score(arrayOfWords[i]) > high_score) {
-  //     // update high_word
-  //     // AND high_score
-  //   } else if (self.score(arrayOfWords[i]) === high_score) {
-  //     // check for 7-letter-word or shorter word
-  //   }
-  // }
 };
 
 module.exports = Scrabble;
 
-// // @TODO - move TESTS below elsewhere as a separate file
+// // @TODO - move these TESTS elsewhere as a separate file
 var s = new Scrabble();
 
 console.log("\n-------------------------------------------");
@@ -119,51 +97,51 @@ console.log("-------------------------------------------");
 
 console.log(">>>>> Single high score should win.");
 console.log("Input: ['CAT', 'COW', 'LIONESS']. Winner should be: 'LIONESS'");
-console.log("Winner is: " + s.highestScoreFrom(['CAT', 'COW', 'LIONESS']));
+console.log(">> TEST: Winner is: " + s.highestScoreFrom(['CAT', 'COW', 'LIONESS']));
 console.log();
 
 console.log(">>>>> With tied high scores, 7-letter word should should win.");
 console.log("Input: ['CAT', 'QQQQQJ', 'AAAAAAG']. Winner should be: 'AAAAAAG'");
+console.log(">> TEST: Winner is: " + s.highestScoreFrom(['CAT', 'QQQQQJ', 'AAAAAAG']));
 console.log("'QQQQQJ' score: " + s.score('QQQQQJ'));
 console.log("'AAAAAAG' score: " + s.score('AAAAAAG'));
-console.log("Winner is: " + s.highestScoreFrom(['CAT', 'QQQQQJ', 'AAAAAAG']));
 console.log();
 
 console.log(">>>>> With tied high scores & no 7-letter word, fewest letters should win.");
 console.log("Input: ['CAT', 'QQQQBK', 'QQQQJ']. Winner should be: 'QQQQJ'");
+console.log(">> TEST: Winner is: " + s.highestScoreFrom(['CAT', 'QQQQBK', 'QQQQJ']));
 console.log("'QQQQBK' score: " + s.score('QQQQBK'));
 console.log("'QQQQJ' score: " + s.score('QQQQJ'));
-console.log("Winner is: " + s.highestScoreFrom(['CAT', 'QQQQBK', 'QQQQJ']));
 console.log();
 
 console.log(">>>>> With tied high scores of same length & no 7-letter word, first entry should win.");
 console.log("Input: ['CAT', 'QQQQJ', 'QQQQX']. Winner should be: 'QQQQJ'");
+console.log(">> TEST: Winner is: " + s.highestScoreFrom(['CAT', 'QQQQJ', 'QQQQX']));
 console.log("'QQQQJ' score: " + s.score('QQQQJ'));
 console.log("'QQQQX' score: " + s.score('QQQQX'));
-console.log("Winner is: " + s.highestScoreFrom(['CAT', 'QQQQJ', 'QQQQX']));
 console.log();
-
-console.log(">>>>> ");
-console.log();
-console.log();
-console.log();
-
-console.log(">>>>> ");
-console.log();
-console.log();
-console.log();
-
-console.log(">>>>> ");
-console.log();
-console.log();
-console.log();
-
-console.log(">>>>> ");
-console.log();
-console.log();
-console.log();
-
-console.log(">>>>> ");
-console.log();
-console.log();
-console.log();
+//
+// console.log(">>>>> ");
+// console.log();
+// console.log();
+// console.log();
+//
+// console.log(">>>>> ");
+// console.log();
+// console.log();
+// console.log();
+//
+// console.log(">>>>> ");
+// console.log();
+// console.log();
+// console.log();
+//
+// console.log(">>>>> ");
+// console.log();
+// console.log();
+// console.log();
+//
+// console.log(">>>>> ");
+// console.log();
+// console.log();
+// console.log();
