@@ -52,25 +52,26 @@ Scrabble.prototype.bonus = function(word) {
   return bonus_result;
 };
 
-
-// @TODO - handle empty array?
 // @TODO - handle non-strings in array?
-// highestScoreFrom(arrayOfWords): returns the word in the array with the highest score.
 Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
-  var high_word = arrayOfWords[0];
-  var high_score = this.score(high_word);
+  if (arrayOfWords.length === 0) {
+    return false;
+  } else {
+    var high_word = arrayOfWords[0];
+    var high_score = this.score(high_word);
 
-  for (i = 1; i < arrayOfWords.length; i++) {
-    var check_word = arrayOfWords[i];
-    var check_score = this.score(check_word);
-    var check_length = check_word.length;
+    for (i = 1; i < arrayOfWords.length; i++) {
+      var check_word = arrayOfWords[i];
+      var check_score = this.score(check_word);
+      var check_length = check_word.length;
 
-    if (check_score > high_score || (check_score === high_score && (check_length === 7 || check_length < high_word.length))) {
-      high_word = check_word;
-      high_score = check_score;
+      if (check_score > high_score || (check_score === high_score && (check_length === 7 || check_length < high_word.length))) {
+        high_word = check_word;
+        high_score = check_score;
+      }
     }
+    return high_word;
   }
-  return high_word;
 };
 
 module.exports = Scrabble;

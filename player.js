@@ -31,7 +31,16 @@ Player.prototype.hasWon = function() {
   }
 };
 
-// highestScoringWord(): Function which returns the highest scoring word the user has played
-// highestWordScore(): Function which returns the highestScoringWord score
+Player.prototype.highestScoringWord = function() {
+  return scrabble.highestScoreFrom(this.plays);
+};
+
+Player.prototype.highestWordScore = function() {
+  if (this.plays.length === 0) {
+    return 0;
+  } else {
+    return scrabble.score(this.highestScoringWord());
+  }
+};
 
 module.exports = Player;

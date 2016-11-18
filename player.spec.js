@@ -73,14 +73,26 @@ describe('Player', function() {
     expect(player.hasWon()).toBe(true);
   });
 
-  // it('is working', function() {
-  //   expect(true).toBe(true);
-  // });
-  //
+  it('.highestScoringWord() should return highest scoring word from plays', function() {
+    var player = new Player("Annalise");
+    player.plays = ["cat", "MUZJIKS", "QZ"]; // totalScore() = 104
+    expect(player.highestScoringWord()).toEqual("MUZJIKS");
+  });
 
-  // it('is working', function() {
-  //   expect(true).toBe(true);
-  // });
-  //
-  //
+  it('.highestWordScore() should return false if no plays yet', function() {
+    var player = new Player("Annalise");
+    expect(player.plays).toEqual([]);
+    expect(player.highestScoringWord()).toEqual(false);
+  });
+
+  it('.highestWordScore() should return the score of highest scoring word from plays', function() {
+    var player = new Player("Annalise");
+    player.plays = ["cat", "MUZJIKS", "QZ"]; // totalScore() = 104
+    expect(player.highestWordScore()).toEqual(79);
+  });
+
+  it('.highestWordScore() should return 0 if no plays yet', function() {
+    var player = new Player("Annalise");
+    expect(player.highestWordScore()).toEqual(0);
+  });
 });
