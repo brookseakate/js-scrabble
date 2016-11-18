@@ -79,7 +79,7 @@ describe('Player', function() {
     expect(player.highestScoringWord()).toEqual("MUZJIKS");
   });
 
-  it('.highestWordScore() should return false if no plays yet', function() {
+  it('.highestScoringWord() should return false if no plays yet', function() {
     var player = new Player("Annalise");
     expect(player.plays).toEqual([]);
     expect(player.highestScoringWord()).toEqual(false);
